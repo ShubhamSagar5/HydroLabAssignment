@@ -2,20 +2,22 @@
 
 function char(str){
     
-    let ans = [] 
-    let count = 1
+    let newStr = str.replace(" ","")
+ 
+    let count = {}
 
-    for(let i = 0 ; i< str.length;i++){
-        if(str[i] === str[i-1] && str[i] !== " "){
-            count = count + 1
-        }else if (str[i-1] !==" "){
-            ans.push([str[i-1],count])
-            count = 1
+    for(let i = 0 ; i<newStr.length;i++){
+        let char = newStr[i] 
+        if(!count[char] && newStr[i]){
+            count[char] = 1
+           
+        }else{
+            count[char]++
         }
 
     }
 
-    return ans
+    return count
 
 }
 
